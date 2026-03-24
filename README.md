@@ -1,9 +1,12 @@
 Roadmap:
 
-[ ] ordenação hierarquica, por gut=gravity * urgency * tendency
+[ ] slackTime = daysRemaining - cycleTimeMedio
+  [ ] Deadline por responsável. Ex.: GAD → 5 tasks vencendo em 3 dias
+[ ] Deadline Burnup: [Burndonw x Burnup] , planejado e real
+[ ] Bloqueios entre tarefas, implementar mapa de dependencias
 [ ] cada card terá, visão hierárquica (Tree View) de suas subtasks em todas as views
-[ ] Heatmap (prioridade x tempo): urgência & datas
-[ ] Bloqueios entre tarefas
+  [ ] ordenação hierarquica, por gut=gravity * urgency * tendency
+  [ ] ordenação Heatmap (priority x deadline): urgência & datas
 
 # React + TypeScript + Vite
 
