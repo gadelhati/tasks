@@ -6,8 +6,10 @@ import { TasksKanban } from './container/tasksKanban';
 import { TasksTimeline } from './container/tasksTimeline';
 import { TasksBurndown } from './container/tasksBurndown';
 import { TasksCumulativeFlow } from './container/taskCumulativeFlow';
+import { TasksCycleTime } from './container/tasksCycleTime';
+import { TasksGUT } from './container/tasksGUT';
 
-type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'CFD';
+type Tab = 'GUT' | 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'CFD' | 'CYCLE_TIME';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'GUT':
+        return <TasksGUT />;
       case 'GANTT':
         return <Tasks />;
       case 'EISENHOWER':
@@ -27,6 +31,8 @@ function App() {
         return <TasksBurndown />;
       case 'CFD':
         return <TasksCumulativeFlow />
+      case 'CYCLE_TIME':
+        return <TasksCycleTime />
       default:
         return null;
     }
@@ -57,12 +63,14 @@ function App() {
         padding: 10,
         borderBottom: '1px solid #ccc'
       }}>
+        <TabButton tab="GUT" label="GUT" />
         <TabButton tab="GANTT" label="Gantt" />
         <TabButton tab="EISENHOWER" label="Eisenhower" />
         <TabButton tab="KANBAN" label="Kanban" />
         <TabButton tab="TIMELINE" label="Timeline" />
         <TabButton tab="BURNDOWN" label="Burndown" />
         <TabButton tab="CFD" label="CFD" />
+        <TabButton tab="CYCLE_TIME" label="Cycle Time" />
       </div>
 
       {/* Conteúdo */}
