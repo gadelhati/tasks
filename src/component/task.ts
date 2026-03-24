@@ -5,7 +5,10 @@ export interface Task extends Identifiable {
     description: string,
     difficulty: string,
     priority: string,
+    start: Date,
+    end: Date,
 	responsible: 'GAD' | 'PRI' | 'JES' | 'DIE' | 'AUG' | 'JEF' | 'CLA',
+    subtasks?: Task[],
 }
 
 export const initialTask : Task = {
@@ -15,5 +18,8 @@ export const initialTask : Task = {
     description: '',
     difficulty: '',
     priority: '',
+    start: new Date(),
+    end: new Date(),
 	responsible: 'GAD',
+    subtasks: [],
 }

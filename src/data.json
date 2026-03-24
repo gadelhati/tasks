@@ -1,0 +1,178 @@
+{
+  "tasks": [
+    {
+      "id": "task-1",
+      "links": {
+        "rel": "self",
+        "href": "/tasks/task-1"
+      },
+      "status": "TO DO",
+      "description": "Implementar autenticação JWT",
+      "difficulty": "Médio",
+      "priority": "Alta",
+      "responsible": "GAD",
+      "start": "2026-03-01",
+      "end": "2026-03-05",
+      "subtasks": [
+        {
+          "id": "task-1-1",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-1-1"
+          },
+          "status": "TO DO",
+          "description": "Criar endpoint de login",
+          "difficulty": "Fácil",
+          "priority": "Alta",
+          "responsible": "PRI",
+          "start": "2026-03-01",
+          "end": "2026-03-02"
+        },
+        {
+          "id": "task-1-2",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-1-2"
+          },
+          "status": "TO DO",
+          "description": "Implementar geração de token JWT",
+          "difficulty": "Médio",
+          "priority": "Alta",
+          "responsible": "JES",
+          "start": "2026-03-02",
+          "end": "2026-03-04"
+        },
+        {
+          "id": "task-1-3",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-1-3"
+          },
+          "status": "TO DO",
+          "description": "Criar refresh token",
+          "difficulty": "Médio",
+          "priority": "Média",
+          "responsible": "GAD",
+          "start": "2026-03-04",
+          "end": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "id": "task-2",
+      "links": {
+        "rel": "self",
+        "href": "/tasks/task-2"
+      },
+      "status": "DOING",
+      "description": "Criar dashboard em React",
+      "difficulty": "Fácil",
+      "priority": "Média",
+      "responsible": "DIE",
+      "start": "2026-03-03",
+      "end": "2026-03-10",
+      "subtasks": [
+        {
+          "id": "task-2-1",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-2-1"
+          },
+          "status": "DONE",
+          "description": "Criar layout base",
+          "difficulty": "Fácil",
+          "priority": "Alta",
+          "responsible": "AUG",
+          "start": "2026-03-03",
+          "end": "2026-03-04"
+        },
+        {
+          "id": "task-2-2",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-2-2"
+          },
+          "status": "DOING",
+          "description": "Implementar componentes",
+          "difficulty": "Médio",
+          "priority": "Média",
+          "responsible": "DIE",
+          "start": "2026-03-05",
+          "end": "2026-03-08"
+        },
+        {
+          "id": "task-2-3",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-2-3"
+          },
+          "status": "TO DO",
+          "description": "Integrar com API",
+          "difficulty": "Médio",
+          "priority": "Alta",
+          "responsible": "GAD",
+          "start": "2026-03-08",
+          "end": "2026-03-10"
+        }
+      ]
+    },
+    {
+      "id": "task-3",
+      "links": {
+        "rel": "self",
+        "href": "/tasks/task-3"
+      },
+      "status": "DONE",
+      "description": "Configurar banco PostgreSQL",
+      "difficulty": "Médio",
+      "priority": "Alta",
+      "responsible": "JEF",
+      "start": "2026-03-02",
+      "end": "2026-03-06",
+      "subtasks": [
+        {
+          "id": "task-3-1",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-3-1"
+          },
+          "status": "DONE",
+          "description": "Criar schema inicial",
+          "difficulty": "Fácil",
+          "priority": "Alta",
+          "responsible": "CLA",
+          "start": "2026-03-02",
+          "end": "2026-03-03"
+        },
+        {
+          "id": "task-3-2",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-3-2"
+          },
+          "status": "DONE",
+          "description": "Configurar datasource no Spring",
+          "difficulty": "Médio",
+          "priority": "Alta",
+          "responsible": "GAD",
+          "start": "2026-03-03",
+          "end": "2026-03-05"
+        },
+        {
+          "id": "task-3-3",
+          "links": {
+            "rel": "self",
+            "href": "/tasks/task-3-3"
+          },
+          "status": "DONE",
+          "description": "Testar conexão",
+          "difficulty": "Fácil",
+          "priority": "Média",
+          "responsible": "JEF",
+          "start": "2026-03-05",
+          "end": "2026-03-06"
+        }
+      ]
+    }
+  ]
+}
