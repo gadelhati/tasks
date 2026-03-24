@@ -5,8 +5,9 @@ import { TasksEisenhower } from './container/tasksEisenhower';
 import { TasksKanban } from './container/tasksKanban';
 import { TasksTimeline } from './container/tasksTimeline';
 import { TasksBurndown } from './container/tasksBurndown';
+import { TasksCumulativeFlow } from './container/taskCumulativeFlow';
 
-type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN';
+type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'CFD';
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
         return <TasksTimeline />;
       case 'BURNDOWN':
         return <TasksBurndown />;
+      case 'CFD':
+        return <TasksCumulativeFlow />
       default:
         return null;
     }
@@ -59,6 +62,7 @@ function App() {
         <TabButton tab="KANBAN" label="Kanban" />
         <TabButton tab="TIMELINE" label="Timeline" />
         <TabButton tab="BURNDOWN" label="Burndown" />
+        <TabButton tab="CFD" label="CFD" />
       </div>
 
       {/* Conteúdo */}
