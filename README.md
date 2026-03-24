@@ -1,8 +1,6 @@
 Roadmap:
 
-[ ] planejar: listar tarefas do projeto
 [ ] visão Gantt assegura a ordenação hierarquica, por gut=gravity * urgency * tendency
-[ ] view: timeline, Calendário horizontal
 [ ] cada card terá, visão hierárquica (Tree View) de suas subtasks em todas as views
 [ ] Burndown Chart
 [ ] Heatmap (prioridade x tempo): urgência & datas

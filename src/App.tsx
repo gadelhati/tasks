@@ -4,8 +4,9 @@ import './App.css';
 import { Tasks } from './container/tasks';
 import { TasksEisenhower } from './container/tasksEisenhower';
 import { TasksKanban } from './container/tasksKanban';
+import { TasksTimeline } from './container/tasksTimeline';
 
-type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN';
+type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE';
 
 function App() {
 
@@ -19,6 +20,8 @@ function App() {
         return <TasksEisenhower />;
       case 'KANBAN':
         return <TasksKanban />;
+      case 'TIMELINE':
+        return <TasksTimeline />;
       default:
         return null;
     }
@@ -52,6 +55,7 @@ function App() {
         <TabButton tab="GANTT" label="Gantt" />
         <TabButton tab="EISENHOWER" label="Eisenhower" />
         <TabButton tab="KANBAN" label="Kanban" />
+        <TabButton tab="TIMELINE" label="Timeline" />
       </div>
 
       {/* Conteúdo */}
