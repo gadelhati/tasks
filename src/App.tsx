@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import './App.css';
-
 import { Tasks } from './container/tasks';
 import { TasksEisenhower } from './container/tasksEisenhower';
 import { TasksKanban } from './container/tasksKanban';
 import { TasksTimeline } from './container/tasksTimeline';
+import { TasksBurndown } from './container/tasksBurndown';
 
-type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE';
+type Tab = 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN';
 
 function App() {
 
@@ -22,6 +22,8 @@ function App() {
         return <TasksKanban />;
       case 'TIMELINE':
         return <TasksTimeline />;
+      case 'BURNDOWN':
+        return <TasksBurndown />;
       default:
         return null;
     }
@@ -56,6 +58,7 @@ function App() {
         <TabButton tab="EISENHOWER" label="Eisenhower" />
         <TabButton tab="KANBAN" label="Kanban" />
         <TabButton tab="TIMELINE" label="Timeline" />
+        <TabButton tab="BURNDOWN" label="Burndown" />
       </div>
 
       {/* Conteúdo */}
