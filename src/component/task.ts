@@ -10,6 +10,7 @@ export interface Task extends Identifiable {
     priority?: number,
     start: Date,
     end: Date,
+    deadline?: Date,
 	responsible: 'GAD' | 'PRI' | 'JES' | 'DIE' | 'AUG' | 'JEF' | 'CLA',
     subtasks?: Task[],
 }
@@ -26,6 +27,7 @@ export const initialTask : Task = {
     priority: 0,
     start: new Date(),
     end: new Date(),
+    deadline: new Date(),
 	responsible: 'GAD',
     subtasks: [],
 }
