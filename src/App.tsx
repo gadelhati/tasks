@@ -8,7 +8,7 @@ import { TasksBurndown } from './container/tasksBurndown';
 import { TasksCumulativeFlow } from './container/tasksCumulativeFlow';
 import { TasksCycleTime } from './container/tasksCycleTime';
 import { TasksGUT } from './container/tasksGUT';
-import { TasksBurnup } from './container/taskBurnup';
+import { TasksBurnup } from './container/tasksBurnup';
 import { TasksDependencies } from './container/tasksDependencies';
 
 type Tab = 'GUT' | 'DEPENDENCES' | 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'BURNUP' | 'CFD' | 'CYCLE_TIME';
