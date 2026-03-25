@@ -31,8 +31,9 @@ const TaskRow = ({ task, depth = 0 }: TaskRowProps) => {
 
                 <div style={{
                     position: "relative",
-                    height: 16,
+                    height: 10,
                     background: "#eee",
+                    borderRadius: 4,
                     marginLeft: depth * 20
                 }}>
                     <div style={{
@@ -40,7 +41,7 @@ const TaskRow = ({ task, depth = 0 }: TaskRowProps) => {
                         left: `${offset * DAY_WIDTH}px`,
                         width: `${duration * DAY_WIDTH}px`,
                         height: "100%",
-                        background: depth === 0 ? "#4caf50" : "#2196f3",
+                        background: depth === 0 ? "#108f14" : "#80aa7f",
                         borderRadius: 4
                     }} />
                 </div>
@@ -53,7 +54,7 @@ const TaskRow = ({ task, depth = 0 }: TaskRowProps) => {
     );
 };
 
-export const Tasks = () => {
+export const TasksGantt = () => {
     return (
         <div style={{ padding: 20 }}>
             <h2>Gantt Minimalista</h2>

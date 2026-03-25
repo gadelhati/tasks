@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { Tasks } from './container/tasks';
+import { TasksGantt } from './container/tasksGantt';
 import { TasksEisenhower } from './container/tasksEisenhower';
 import { TasksKanban } from './container/tasksKanban';
 import { TasksTimeline } from './container/tasksTimeline';
@@ -21,7 +21,7 @@ function App() {
       case 'GUT':
         return <TasksGUT />;
       case 'GANTT':
-        return <Tasks />;
+        return <TasksGantt />;
       case 'EISENHOWER':
         return <TasksEisenhower />;
       case 'KANBAN':
