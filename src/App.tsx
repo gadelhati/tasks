@@ -8,8 +8,9 @@ import { TasksBurndown } from './container/tasksBurndown';
 import { TasksCumulativeFlow } from './container/taskCumulativeFlow';
 import { TasksCycleTime } from './container/tasksCycleTime';
 import { TasksGUT } from './container/tasksGUT';
+import { TasksBurnup } from './container/taskBurnup';
 
-type Tab = 'GUT' | 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'CFD' | 'CYCLE_TIME';
+type Tab = 'GUT' | 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'BURNUP' | 'CFD' | 'CYCLE_TIME';
 
 function App() {
 
@@ -29,6 +30,8 @@ function App() {
         return <TasksTimeline />;
       case 'BURNDOWN':
         return <TasksBurndown />;
+      case 'BURNUP':
+        return <TasksBurnup />;
       case 'CFD':
         return <TasksCumulativeFlow />
       case 'CYCLE_TIME':
@@ -69,6 +72,7 @@ function App() {
         <TabButton tab="KANBAN" label="Kanban" />
         <TabButton tab="TIMELINE" label="Timeline" />
         <TabButton tab="BURNDOWN" label="Burndown" />
+        <TabButton tab="BURNUP" label="Burnup" />
         <TabButton tab="CFD" label="CFD" />
         <TabButton tab="CYCLE_TIME" label="Cycle Time" />
       </div>
