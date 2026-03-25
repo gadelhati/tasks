@@ -9,8 +9,9 @@ import { TasksCumulativeFlow } from './container/tasksCumulativeFlow';
 import { TasksCycleTime } from './container/tasksCycleTime';
 import { TasksGUT } from './container/tasksGUT';
 import { TasksBurnup } from './container/taskBurnup';
+import { TasksDependencies } from './container/tasksDependencies';
 
-type Tab = 'GUT' | 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'BURNUP' | 'CFD' | 'CYCLE_TIME';
+type Tab = 'GUT' | 'DEPENDENCES' | 'GANTT' | 'EISENHOWER' | 'KANBAN' | 'TIMELINE' | 'BURNDOWN' | 'BURNUP' | 'CFD' | 'CYCLE_TIME';
 
 function App() {
 
@@ -20,6 +21,8 @@ function App() {
     switch (activeTab) {
       case 'GUT':
         return <TasksGUT />;
+      case 'DEPENDENCES':
+        return <TasksDependencies />;
       case 'GANTT':
         return <TasksGantt />;
       case 'EISENHOWER':
@@ -67,6 +70,7 @@ function App() {
         borderBottom: '1px solid #ccc'
       }}>
         <TabButton tab="GUT" label="GUT" />
+        <TabButton tab="DEPENDENCES" label="Dependences" />
         <TabButton tab="GANTT" label="Gantt" />
         <TabButton tab="EISENHOWER" label="Eisenhower" />
         <TabButton tab="KANBAN" label="Kanban" />
