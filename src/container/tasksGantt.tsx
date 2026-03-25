@@ -31,7 +31,8 @@ const TaskRow = ({ task, depth = 0 }: TaskRowProps) => {
 
                 <div style={{
                     position: "relative",
-                    height: 16,
+                    height: 10,
+                    borderRadius: 4,
                     background: "#eee",
                     marginLeft: depth * 20
                 }}>
@@ -53,7 +54,7 @@ const TaskRow = ({ task, depth = 0 }: TaskRowProps) => {
     );
 };
 
-export const Tasks = () => {
+export const TasksGantt = () => {
     return (
         <div style={{ padding: 20 }}>
             <h2>Gantt Minimalista</h2>

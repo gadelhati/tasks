@@ -76,7 +76,7 @@ export const TasksEisenhower = () => {
             </div>
 
             <div>
-                <h3>🔵 Delegar</h3>
+                <h3>🟢 Delegar</h3>
                 {renderList(quadrants.DELEGATE)}
             </div>
 
