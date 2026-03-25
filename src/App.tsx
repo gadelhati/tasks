@@ -5,7 +5,7 @@ import { TasksEisenhower } from './container/tasksEisenhower';
 import { TasksKanban } from './container/tasksKanban';
 import { TasksTimeline } from './container/tasksTimeline';
 import { TasksBurndown } from './container/tasksBurndown';
-import { TasksCumulativeFlow } from './container/taskCumulativeFlow';
+import { TasksCumulativeFlow } from './container/tasksCumulativeFlow';
 import { TasksCycleTime } from './container/tasksCycleTime';
 import { TasksGUT } from './container/tasksGUT';
 import { TasksBurnup } from './container/taskBurnup';
@@ -48,7 +48,7 @@ function App() {
         padding: '10px 15px',
         border: 'none',
         cursor: 'pointer',
-        background: activeTab === tab ? '#1976d2' : '#e0e0e0',
+        background: activeTab === tab ? '#4caf50' : '#e0e0e0',
         color: activeTab === tab ? '#fff' : '#000',
         borderRadius: '4px 4px 0 0'
       }}
