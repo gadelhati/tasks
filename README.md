@@ -2,6 +2,7 @@ Roadmap:
 
 [ ] slackTime = daysRemaining - cycleTimeMedio
   [ ] Deadline por responsável. Ex.: GAD → 5 tasks vencendo em 3 dias
+  [ ] slider para facilitar a porcentagem de conclusão
 [ ] Deadline Burnup: [Burndonw x Burnup] , planejado e real
 [ ] Bloqueios entre tarefas, implementar mapa de dependencias
 [ ] cada card terá, visão hierárquica (Tree View) de suas subtasks em todas as views
