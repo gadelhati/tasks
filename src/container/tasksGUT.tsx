@@ -1,21 +1,6 @@
-import data from '../data.json';
+import { normalizeTasks, flattenTasks } from '../utils/converter';
 import type { Task } from '../component/task';
-
-type TaskDTO = Omit<Task, 'start' | 'end' | 'subtasks'> & {
-    start: string;
-    end: string;
-    subtasks?: TaskDTO[];
-};
-
-const mapTask = (dto: TaskDTO): Task => ({
-    ...dto,
-    start: new Date(dto.start),
-    end: new Date(dto.end),
-    subtasks: dto.subtasks?.map(mapTask)
-});
-
-const flattenTasks = (tasks: Task[]): Task[] =>
-    tasks.flatMap(t => [t, ...(t.subtasks ? flattenTasks(t.subtasks) : [])]);
+import data from '../data.json';
 
 const getGUT = (task: Task) =>
     (task.gravity ?? 0) *
@@ -24,8 +9,8 @@ const getGUT = (task: Task) =>
 
 export const TasksGUT = () => {
 
-    const tasksDTO = data.tasks as TaskDTO[];
-    const tasks = flattenTasks(tasksDTO.map(mapTask));
+    const tasksDTO = data;
+    const tasks = flattenTasks(normalizeTasks(tasksDTO));
 
     const sorted = [...tasks]
         .map(task => ({

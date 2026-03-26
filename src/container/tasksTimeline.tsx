@@ -1,25 +1,5 @@
-import type { Task } from '../component/task';
+import { normalizeTasks, flattenTasks } from '../utils/converter';
 import data from '../data.json';
-
-type TaskDTO = Omit<Task, 'start' | 'end' | 'subtasks'> & {
-    start: string;
-    end: string;
-    subtasks?: TaskDTO[];
-};
-
-const mapTask = (dto: TaskDTO): Task => ({
-    ...dto,
-    start: new Date(dto.start),
-    end: new Date(dto.end),
-    subtasks: dto.subtasks?.map(mapTask)
-});
-
-const flattenTasks = (tasks: Task[]): Task[] => {
-    return tasks.flatMap(task => [
-        task,
-        ...(task.subtasks ? flattenTasks(task.subtasks) : [])
-    ]);
-};
 
 const DAY_WIDTH = 40;
 
@@ -41,8 +21,8 @@ const getDaysDiff = (start: Date, end: Date) => {
 
 export const TasksTimeline = () => {
 
-    const tasksDTO = data.tasks as TaskDTO[];
-    const tasks = flattenTasks(tasksDTO.map(mapTask));
+    const tasksDTO = data;
+    const tasks = flattenTasks(normalizeTasks(tasksDTO));
 
     // range global
     const minDate = new Date(Math.min(...tasks.map(t => t.start.getTime())));

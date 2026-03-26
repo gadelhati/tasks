@@ -59,7 +59,7 @@ export const TasksGantt = () => {
         <div style={{ padding: 20 }}>
             <h2>Gantt Minimalista</h2>
 
-            {data.tasks.map((task: any) => (
+            {data.map((task: any) => (
                 <TaskRow key={task.id} task={task} />
             ))}
         </div>

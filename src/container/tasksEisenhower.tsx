@@ -1,25 +1,6 @@
+import { normalizeTasks, flattenTasks } from '../utils/converter';
 import type { Task } from '../component/task';
 import data from '../data.json';
-
-type TaskDTO = Omit<Task, 'start' | 'end' | 'subtasks'> & {
-    start: string;
-    end: string;
-    subtasks?: TaskDTO[];
-};
-
-const mapTask = (dto: TaskDTO): Task => ({
-    ...dto,
-    start: new Date(dto.start),
-    end: new Date(dto.end),
-    subtasks: dto.subtasks?.map(mapTask)
-});
-
-const flattenTasks = (tasks: Task[]): Task[] => {
-    return tasks.flatMap(task => [
-        task,
-        ...(task.subtasks ? flattenTasks(task.subtasks) : [])
-    ]);
-};
 
 const classify = (task: Task) => {
     const isUrgent = (task.urgency ?? 0) >= 5;
@@ -33,8 +14,8 @@ const classify = (task: Task) => {
 
 export const TasksEisenhower = () => {
 
-    const tasksDTO = data.tasks as TaskDTO[];
-    const tasks = tasksDTO.map(mapTask);
+    const tasksDTO = data;
+    const tasks = normalizeTasks(tasksDTO);
     const allTasks = flattenTasks(tasks);
 
     const quadrants = {

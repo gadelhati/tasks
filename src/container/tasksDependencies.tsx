@@ -5,33 +5,12 @@ import ReactFlow, {
 } from 'reactflow';
 import type { Node, Edge } from 'reactflow';
 import dagre from 'dagre';
-
 import 'reactflow/dist/style.css';
-
 import data from '../data.json';
-import type { Task } from '../component/task';
 
 const nodeWidth = 200;
 const nodeHeight = 80;
-
-type TaskDTO = Omit<Task, 'start' | 'end' | 'deadline' | 'subtasks'> & {
-    start: string;
-    end: string;
-    deadline?: string;
-    dependencies?: string[];
-    subtasks?: TaskDTO[];
-};
-
-const mapTask = (dto: TaskDTO): Task => ({
-    ...dto,
-    start: new Date(dto.start),
-    end: new Date(dto.end),
-    deadline: dto.deadline ? new Date(dto.deadline) : undefined,
-    subtasks: dto.subtasks?.map(mapTask)
-});
-
-const flattenTasks = (tasks: Task[]): Task[] =>
-    tasks.flatMap(t => [t, ...(t.subtasks ? flattenTasks(t.subtasks) : [])]);
+import { normalizeTasks, flattenTasks } from '../utils/converter';
 
 // 🔥 Layout com DAGRE
 const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
@@ -72,8 +51,8 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[]) => {
 
 export const TasksDependencies = () => {
 
-    const tasksDTO = data.tasks as TaskDTO[];
-    const tasks = flattenTasks(tasksDTO.map(mapTask));
+    const tasksDTO = data;
+    const tasks = flattenTasks(normalizeTasks(tasksDTO));
 
     const getTaskById = (id: string) => tasks.find(t => t.id === id);
 

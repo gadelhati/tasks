@@ -1,25 +1,9 @@
 import data from '../data.json';
 import type { Task } from '../component/task';
-
 import {
     ScatterChart, Scatter, XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts';
-
-type TaskDTO = Omit<Task, 'start' | 'end' | 'subtasks'> & {
-    start: string;
-    end: string;
-    subtasks?: TaskDTO[];
-};
-
-const mapTask = (dto: TaskDTO): Task => ({
-    ...dto,
-    start: new Date(dto.start),
-    end: new Date(dto.end),
-    subtasks: dto.subtasks?.map(mapTask)
-});
-
-const flattenTasks = (tasks: Task[]): Task[] =>
-    tasks.flatMap(t => [t, ...(t.subtasks ? flattenTasks(t.subtasks) : [])]);
+import { normalizeTasks, flattenTasks } from '../utils/converter';
 
 const getCycleTime = (task: Task) => {
     return (task.end.getTime() - task.start.getTime()) / (1000 * 60 * 60 * 24);
@@ -27,8 +11,8 @@ const getCycleTime = (task: Task) => {
 
 export const TasksCycleTime = () => {
 
-    const tasksDTO = data.tasks as TaskDTO[];
-    const tasks = flattenTasks(tasksDTO.map(mapTask));
+    const tasksDTO = data;
+    const tasks = flattenTasks(normalizeTasks(tasksDTO));
 
     const dataChart = tasks.map(task => ({
         date: task.end.toISOString().slice(0, 10),

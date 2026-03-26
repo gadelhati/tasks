@@ -1,36 +1,16 @@
-import data from '../data.json';
+import { normalizeTasks, flattenTasks } from '../utils/converter';
 import { type Task } from '../component/task';
-
-type TaskDTO = Omit<Task, 'start' | 'end' | 'subtasks'> & {
-    start: string;
-    end: string;
-    subtasks?: TaskDTO[];
-};
-
-const mapTask = (dto: TaskDTO): Task => ({
-    ...dto,
-    start: new Date(dto.start),
-    end: new Date(dto.end),
-    subtasks: dto.subtasks?.map(mapTask)
-});
-
-const flattenTasks = (tasks: Task[]): Task[] => {
-    return tasks.flatMap(task => [
-        task,
-        ...(task.subtasks ? flattenTasks(task.subtasks) : [])
-    ]);
-};
+import data from '../data.json';
 
 export const TasksKanban = () => {
 
-    const tasksDTO = data.tasks as TaskDTO[];
-    const tasks = tasksDTO.map(mapTask);
+    const tasks = normalizeTasks(data);
     const allTasks = flattenTasks(tasks);
 
-    const columns = {
-        "TO DO": [] as Task[],
-        "DOING": [] as Task[],
-        "DONE": [] as Task[],
+    const columns: Record<Task['status'], Task[]> = {
+        "TO DO": [],
+        "DOING": [],
+        "DONE": [],
     };
 
     allTasks.forEach(task => {
@@ -61,7 +41,7 @@ export const TasksKanban = () => {
                     </div>
 
                     <div style={{ fontSize: 11, marginTop: 4 }}>
-                        G:{task.gravity ?? 0} U:{task.urgency ?? 0}
+                        G:{task.gravity} U:{task.urgency}
                     </div>
                 </div>
             ))}
